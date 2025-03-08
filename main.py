@@ -1,7 +1,11 @@
+import sys
 from stats import word_count, get_character_frequencies
 
 def main():
-    filepath = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    filepath = sys.argv[1]
     text = get_text(filepath)
     report = create_report(filepath, text)
 
